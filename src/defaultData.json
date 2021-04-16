@@ -1,0 +1,12 @@
+[
+  {
+    "id": "forecast",
+    "color": "hsl(31, 70%, 50%)",
+    "data": []
+  },
+  {
+    "id": "actual",
+    "color": "hsl(18, 70%, 50%)",
+    "data": []
+  }
+]

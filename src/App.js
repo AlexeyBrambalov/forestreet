@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import Line from "./components/Line/Line";
+import { DataContext } from "./Context/DataContext";
+import Loading from "./components/Line/Loading";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import "./App.css";
+
+const App = () => {
+  const { state, setState } = useContext(DataContext);
+  useEffect(() => {
+    fetch(
+      "https://api.carbonintensity.org.uk/intensity/2018-01-20T12:00Z/2018-01-20T16:30Z"
+    )
+      .then((response) => response.json())
+      .then((data) => setState(data["data"]));
+    // eslint-disable-next-line
+  }, []);
+
+  return <div className="App">{state.length ? <Line /> : <Loading />}</div>;
+};
 
 export default App;

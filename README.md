@@ -1,3 +1,13 @@
+# Forestreet Front-end Coding Challenge
+
+Create a simple, single page app (SPA) that allows a user to view U.K Carbon Intensity data in a graph. The data will be requested from the National Grid Carbon Intensity public API.
+
+The user should be able to:
+
+- Open the SPA in their browser.
+- See a loading spinner when they land on the page. In the background you'll make a request to get data from the carbon intensity REST API.
+- After the data has been loaded from the API, a graph with appear showing a range of carbon intensity data between two dates.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
