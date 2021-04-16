@@ -6,3 +6,16 @@
   align-items: center;
   margin: auto;
 }
+
+.react-datepicker__time-list {
+  padding: 0 !important;
+}
+
+.row {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}

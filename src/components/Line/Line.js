@@ -7,10 +7,8 @@ import defaultData from "../../defaultData.json";
 
 const Line = () => {
   const { state, chartData, setChartData } = useContext(DataContext);
-
+  const newState = [...state];
   useEffect(() => {
-    const newState = [...state];
-
     if (newState.length > 0) {
       const forecastData = formatData("forecast", newState);
       const actualData = formatData("actual", newState);
@@ -20,8 +18,10 @@ const Line = () => {
 
       setChartData(defaultData);
     }
+
+    console.log("chart");
     // eslint-disable-next-line
-  }, []);
+  }, [newState]);
 
   return (
     <>
@@ -29,9 +29,9 @@ const Line = () => {
         <ResponsiveLine
           data={chartData}
           margin={{
-            top: 150,
+            top: 50,
             right: 110,
-            bottom: 50,
+            bottom: 150,
             left: 60,
           }}
           colors={(d) => d.color}
@@ -51,9 +51,9 @@ const Line = () => {
             orient: "bottom",
             tickSize: 5,
             tickPadding: 5,
-            tickRotation: 0,
+            tickRotation: 45,
             legend: "Date & Time",
-            legendOffset: 36,
+            legendOffset: 106,
             legendPosition: "middle",
           }}
           axisLeft={{
