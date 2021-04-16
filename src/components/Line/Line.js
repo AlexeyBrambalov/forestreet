@@ -17,6 +17,8 @@ const Line = () => {
       defaultData[1].data = actualData;
 
       setChartData(defaultData);
+
+      console.log(chartData);
     }
 
     console.log("chart");
