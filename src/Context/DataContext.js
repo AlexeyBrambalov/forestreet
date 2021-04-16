@@ -9,6 +9,8 @@ export const DataProvider = ({ children }) => {
     endTime: "2018-01-20T16:30Z",
   });
 
+  const [trigger, setTrigger] = useState(true);
+
   return (
     <DataContext.Provider
       value={{
@@ -18,6 +20,8 @@ export const DataProvider = ({ children }) => {
         setChartData,
         time,
         setTime,
+        trigger,
+        setTrigger,
       }}
     >
       {children}

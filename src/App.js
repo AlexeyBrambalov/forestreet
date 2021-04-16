@@ -10,14 +10,17 @@ const App = () => {
   const { state, setState, time } = useContext(DataContext);
   useEffect(() => {
     fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.carbonintensity.org.uk/intensity/${time.startTime}/${time.endTime}`
+      `https://api.carbonintensity.org.uk/intensity/${time.startTime}/${time.endTime}`
     )
       .then((response) => response.json())
       .then((data) => setState(data["data"]));
+
     // eslint-disable-next-line
   }, [time]);
 
   console.log("2018-01-20T12:30Z", "2018-01-20T16:30Z", time);
+
+  console.log("state", state);
 
   return (
     <>

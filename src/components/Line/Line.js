@@ -6,24 +6,26 @@ import { formatData } from "../../utilities/functions";
 import defaultData from "../../defaultData.json";
 
 const Line = () => {
-  const { state, chartData, setChartData } = useContext(DataContext);
-  const newState = [...state];
+  const { state, chartData, setChartData, time } = useContext(DataContext);
+
   useEffect(() => {
-    if (newState.length > 0) {
-      const forecastData = formatData("forecast", newState);
-      const actualData = formatData("actual", newState);
+    const newState = [...state];
+    const forecastData = formatData("forecast", newState);
+    const actualData = formatData("actual", newState);
 
-      defaultData[0].data = forecastData;
-      defaultData[1].data = actualData;
+    defaultData[0].data = forecastData;
+    defaultData[1].data = actualData;
 
-      setChartData(defaultData);
+    setChartData(defaultData);
 
-      console.log(chartData);
-    }
+    console.log(chartData);
 
     console.log("chart");
     // eslint-disable-next-line
-  }, [newState]);
+  }, [state]);
+
+  console.log("chartdata", chartData);
+  console.log("time", time);
 
   return (
     <>
