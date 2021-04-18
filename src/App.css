@@ -1,21 +1,24 @@
 .App {
-  width: 80vw;
-  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
-}
-
-.react-datepicker__time-list {
-  padding: 0 !important;
 }
 
 .row {
   display: flex;
-
   flex-direction: row;
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+.picker {
+  margin-right: 10px;
+}
+
+.chartjs-render-monitor {
+  width: 50vw !important;
+  height: 100% !important;
+  padding: 30px;
 }

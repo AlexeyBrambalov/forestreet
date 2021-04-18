@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
+import { DataContext } from "../../Context/DataContext";
+import { dateFormat } from "../../utilities/functions";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { DataContext } from "../../Context/DataContext";
+
 export default function DateAndTimePicker() {
   const { time, setTime } = useContext(DataContext);
+
   const [value, setValue] = useState({
     startDate: moment(time.startTime)._d,
     endDate: moment(time.endTime)._d,
@@ -19,16 +22,8 @@ export default function DateAndTimePicker() {
     }
     setValue({ startDate, endDate });
     setTime({
-      startTime:
-        moment(startDate).format("YYYY-MM-DD") +
-        "T" +
-        moment(startDate).format("HH:mm") +
-        "Z",
-      endTime:
-        moment(endDate).format("YYYY-MM-DD") +
-        "T" +
-        moment(endDate).format("HH:mm") +
-        "Z",
+      startTime: dateFormat(startDate),
+      endTime: dateFormat(endDate),
     });
   };
 
@@ -38,7 +33,7 @@ export default function DateAndTimePicker() {
 
   return (
     <div className="row">
-      <div>
+      <div className="picker">
         <DatePicker
           inline
           selected={value.startDate}
